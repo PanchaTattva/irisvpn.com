@@ -1,0 +1,17 @@
+<img class="garuda-header" src="assets/garuda-header.png">
+
+<hr>
+<span>
+<ul><%= link_to 'pricing', controller: 'pricing' %></ul>
+<ul><a href="#">faq</a></ul>
+<ul><a href="#">contact</a></ul>
+<ul> | </ul>
+<% if user_signed_in? %>
+  <ul><%= link_to "dashboard", controller: 'users' %></ul>
+  <ul><%= link_to "logout", destroy_user_session_path, method: :delete %></ul>
+<% else %>
+  <ul><%= link_to "login", new_user_session_path %></ul>
+  <ul><%= link_to "sign up", new_user_registration_path %></ul>
+<% end %>
+</span>
+

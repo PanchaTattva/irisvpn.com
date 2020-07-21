@@ -1,0 +1,60 @@
+<img class="garuda-header" src="/assets/garuda-header.png">
+
+<hr>
+<span>
+<% if user_signed_in? %>
+  <ul><%= link_to "Logout", destroy_user_session_path, method: :delete %></ul>
+<% else %>
+  <ul><%= link_to "sign up", new_user_registration_path %></ul>
+<% end %>
+<ul><a href="#">faq</a></ul>
+<ul><a href="#">contact</a></ul>
+<ul> | </ul>
+<ul><a href="#">privacy</a></ul>
+<ul><a href="#">usage terms</a></ul>
+<ul><a href="#">canary</a></ul>
+</span>
+
+<div class="content">
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+   <table style="width:55%; justify-cotent: center">
+    <tr>
+    <td><%= f.label :email %></td>
+    <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+    </tr>
+
+    <tr>
+    <td><%= f.label :password %></td>
+    <td><%= f.password_field :password, autocomplete: "new-password" %></td>
+    </tr>
+
+    <% if devise_mapping.rememberable? %>
+    <tr>
+      <td></td>
+      <td><%= f.check_box :remember_me, {checked: true} %> <%= f.label :remember_me %></td>
+    </tr>
+    <% end %>
+    <tr>
+    <td></td>
+    <td><%= f.submit "Login" %></td>
+    </tr>
+    </table>
+    <br>
+    <%= content_tag(:div, flash[:error], :style => "color: #b77b4f") if flash[:error] %>
+    <%= content_tag(:div, flash[:notice], :style => "color: #b77b4f") if flash[:notice] %>
+    <%= content_tag(:div, flash[:alert], :style => "color: #b77b4f") if flash[:alert] %>
+  <%= render "users/shared/error_messages", resource: resource %>
+  </div>
+
+<% end %>
+
+
+</div>
+
+<footer>
+<hr>
+<p>made with ruby.</p>
+</footer>
+<img class="sages" src="/assets/sages.png">
+

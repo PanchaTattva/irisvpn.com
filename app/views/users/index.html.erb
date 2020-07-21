@@ -1,0 +1,71 @@
+<img class="garuda-header" src="/assets/garuda-header.png">
+
+<hr>
+<span>
+<ul><%= link_to 'pricing', controller: 'pricing' %></ul>
+<ul><a href="#">faq</a></ul>
+<ul><a href="#">contact</a></ul>
+<ul> | </ul>
+<% if user_signed_in? %>
+  <ul><%= link_to "logout", destroy_user_session_path, method: :delete %></ul>
+<% else %>
+  <ul><%= link_to "login", new_user_session_path %></ul>
+  <ul><%= link_to "sign up", new_user_registration_path %></ul>
+<% end %>
+</span>
+
+<div class="content">
+<p><strong>account status:</strong> <%= @user.account_status %></p>
+<p><strong>email:</strong> <%= @user.email %></p>
+
+<br>
+<% if @user.account_status == "inactive" %>
+<p style="color: #c18c5d">please either make a paypal or crypto payment to active your vpn account.</p>
+<br>
+<strong>crypto:</strong>
+<p>bitcoincash:qpt5mjldn2kzfdqg9r7sxqkv2f6u6ftu3sdznxjrep</p>
+<p>bitcoin:bc1qwmu620r95ayn4vmhvuml4t9sfq6qxk4fgld097</p>
+<p>ethereum:0x0bb49a2fd0D0D1FA13Bc3C4b0805b03EeEbAdb62</p>
+<p>dogecoin:DJqfDbsdUezgzE1hNs2zayzhpMtgBw7PvB</p>
+
+<br>
+<div id="paypal-button-container"></div>
+<% end %>
+
+<p><a href="#">sign up</a></p>
+<p><a href="#">privacy</a></p>
+<p><a href="#">usage terms</a></p>
+<p><a href="#">canary</a></p>
+</div>
+
+<footer>
+<hr>
+<p>made with ruby.</p>
+</footer>
+<img class="sages" src="/assets/sages.png">
+<script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD" data-sdk-integration-source="button-factory"></script>
+<script>
+  paypal.Buttons({
+      style: {
+          shape: 'rect',
+          color: 'gold',
+          layout: 'vertical',
+          label: 'paypal',
+
+      },
+      createOrder: function(data, actions) {
+          return actions.order.create({
+              purchase_units: [{
+                  amount: {
+                      value: '6.54'
+                  }
+              }]
+          });
+      },
+      onApprove: function(data, actions) {
+          return actions.order.capture().then(function(details) {
+              alert('Transaction completed by ' + details.payer.name.given_name + '!');
+          });
+      }
+  }).render('#paypal-button-container');
+</script>

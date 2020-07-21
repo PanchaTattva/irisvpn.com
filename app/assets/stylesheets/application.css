@@ -1,0 +1,69 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ .garuda-header {
+  display: flex;
+  margin: auto;
+  margin-top: -15px;
+  width: 40%;
+  opacity: 80%;
+}
+
+.sages{
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    height: 25%;
+    opacity: 10%;
+}
+
+.content {
+  margin: auto;
+  width: 55%;
+  border-width: thin;
+  background-color: aliceblue;
+  padding: 30px;
+  border-style: dashed;
+}
+
+span {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+
+hr {
+  width: 60%;
+  opacity: 30%;
+  margin-top: -1px;
+}
+
+ul, a {
+ color: #5e88ac;
+}
+
+span {
+  margin-left: -50px;
+}
+
+footer {
+  margin: auto;
+  margin-top: 220px;
+  text-align: center;
+  color: grey;
+  font-size: small;
+}
+

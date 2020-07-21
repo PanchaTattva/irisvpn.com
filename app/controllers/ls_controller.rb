@@ -1,0 +1,2 @@
+class LsController < ApplicationController
+end

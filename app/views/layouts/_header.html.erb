@@ -2,7 +2,12 @@
 
 <hr>
 <span>
+<% unless current_page?(root_path) %>
+<ul><a href="<%= root_path %>">home</a></ul>
+<% end %>
+<% unless current_page?(controller: 'pricing', action: 'index') %>
 <ul><%= link_to 'pricing', controller: 'pricing' %></ul>
+<% end %>
 <ul><a href="#">faq</a></ul>
 <ul><a href="#">contact</a></ul>
 <ul> | </ul>

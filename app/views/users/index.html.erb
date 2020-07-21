@@ -17,10 +17,12 @@
 <div class="content">
 <p><strong>account status:</strong> <%= @user.account_status %></p>
 <p><strong>email:</strong> <%= @user.email %></p>
+<p><strong>openvpn file:</strong> n/a</p>
 
 <br>
 <% if @user.account_status == "inactive" %>
-<p style="color: #c18c5d">please either make a paypal or crypto payment to active your vpn account.</p>
+<p style="color: #c18c5d">please either make an paypal or crypto payment to active your vpn account.</p>
+<p style="color: #c18c5d">1 month vpn access for R108 or $6.5</p>
 <br>
 <strong>crypto:</strong>
 <p>bitcoincash:qpt5mjldn2kzfdqg9r7sxqkv2f6u6ftu3sdznxjrep</p>

@@ -17,9 +17,9 @@ The issue is that the VPN Server provider can still see where the request has be
 <h4>Other:</h4>
 <p>We are also developing a tool to modify packet sizes between the entrypoint and exit VPN Servers. Combined with all the aggregated traffic this would make timing and packet size attacks attempting to track you almost null.</p>
 
-<hr Align=left>
+<br>
 <% if !user_signed_in? %>
-  <p><%= link_to "sign up", new_user_registration_path %></p>
+  <p><button><%= link_to "sign up", new_user_registration_path %></button></p>
 <% end %>
 
 </div>

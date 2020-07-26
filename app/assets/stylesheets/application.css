@@ -22,6 +22,12 @@
   opacity: 80%;
 }
 
+.header-hr {
+  width: 60%;
+  opacity: 30%;
+  margin-top: -1px;
+}
+
 .sages{
     position: fixed;
     bottom: 0px;
@@ -46,8 +52,8 @@ span {
 }
 
 hr {
-  width: 60%;
-  opacity: 30%;
+  width: 100%;
+  opacity: 10%;
   margin-top: -1px;
 }
 

@@ -1,23 +1,21 @@
 <%= render "layouts/header" %>
 
 <div class="content">
-<p>Multiple VPN hop solution for added anonymity. You will connect to our entrypoint vpn server, and then
-your traffic will be routed over another vpn tunnel to a different upstream provider, in a different region, and then only exit to public internet -</p>
+<h3>The Product:</h3>
+<p>A Low-Latency VPN solution with multiple hops for added anonymity, infrastructure hosted in South Africa & multiple upstream providers in multiple regions.
 
-<p>With the standard VPN setup of: user, vpn-server, internet. you make an request for google.co.za, then openvpn client on your machine encrypts that request,
-and sends it off to the vpn-server. Making it impossible for your own ISP to see what you are requesting from the internet. But the ISP of the vpn-server (upstream provider),
-they know who you are. They can see you are sending an encrypted packet so they wait to see what that vpn-server is trying to access on the internet
-at that specific time, and with some luck and timing, they will be able to tell what you request from the internet.</p>
+Connect to your VPN entrypoint and have your traffic routed over an additional VPN tunnel with a different provider (in another region) before exiting to the public internet.</p>
 
-<p>Thats where the multiple VPN hop helps, by sending your encrypted packet on to an 3rd ISP (upstream provider).
-Making it much harder for the exit vpn (3rd ISP) to know that you are the source of the web request.</p>
+<h3>The Problem:</h3>
+<p>With a traditional 'User -> VPN Server -> Internet' VPN setup your request to a website is encrypted by the client (OpenVPN, for instance) and sent to the VPN server. This keeps your ISP (Internet Service Provider) from eavesdropping on your request from the internet. 
 
-<p>We are busy developing a tool to modify packets sizes between the entrypoint vpn and exit vpn -
-combined with the aggregated traffic from all other vpn users - making timing and packet size attacks, to track you, almost null.</p>
+The issue is that the VPN Server provider can still see where the request has been generated, and with a bit of luck and timing, they can see what the VPN has requested and make a deduction - tying you to the request.</p>
 
-<p>lower-latency VPN solution. Infrastructure hosted in South Africa, with multiple upstream providers, in multiple regions.</p> 
+<h3>The Solution:</h3>
+<p>Multiple VPN hops solve this by sending the packet which has been encrypted to a third provider before existing to public internet, keeping the entrypoint VPN Server from seeing what your request is, and keeping the exit VPN Server from knowing where the request was generated.</p>
 
-<p>Rather created a bit more anonymizing service, than exiting my traffic in Europe - and dealing with high ping.</p>
+<h4>Other:</h4>
+<p>We are also developing a tool to modify packet sizes between the entrypoint and exit VPN Servers. Combined with all the aggregated traffic this would make timing and packet size attacks attempting to track you almost null.</p>
 
 <% if !user_signed_in? %>
   <p><%= link_to "sign up", new_user_registration_path %></p>

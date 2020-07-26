@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get 'users', to: 'users#index'
   get '/user' => "users#index", :as => :user_root
 
+  get '/privacy.txt', :to => redirect('/assets/privacy.txt')
+
   root 'welcome#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

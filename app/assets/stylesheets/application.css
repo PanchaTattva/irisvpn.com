@@ -28,6 +28,12 @@
   margin-top: -1px;
 }
 
+.footer-hr {
+  width: 60%;
+  opacity: 30%;
+  margin-top: -1px;
+}
+
 .sages{
     position: fixed;
     bottom: 0px;

@@ -1,0 +1,29 @@
+privacy policy for vpn.tattva.co.za services.
+
+information collected and stored for https://vpn.tattva.co.za/:
+  1. your email and hashed password.
+  2. timestamp, url, user-agent for all visitor to vpn.tattva.co.za [no ip's collected].
+
+if your accounts stays inactive after a few months, then your email and hashed password will be removed permenently.
+
+other personal idenitfy information might be stored by our upstream providers for website at https://vpn.tattva.co.za/.
+
+payment information stored:
+
+we do not store any payment details about you on our systems.
+
+  1. view PayPal for information they store about you, and your details that are visible to payee.
+  2. view set crypto public leadger for details of payments to us.
+
+information collected and stored for OpenVPN connections on port 1194/udp:
+
+we do not keep any systems log [ip and timestamp] for users that use our OpenVPN service.
+
+our upstream providers might store information about incoming connections to our services.
+
+troubleshooting and viewing connection activity:
+
+to investigate abuse, and for troubleshooting, we might look at live connections [ips] connecting to our services -
+logs might be stored during that timeframe on an tmp filesystem, and securly remove afterwards using bleachbit.
+
+-- updated 22 Jul 2020 --

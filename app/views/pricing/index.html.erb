@@ -1,21 +1,24 @@
 <%= render "layouts/header" %>
 <div class="content">
 
-<h3>payment methods</h3>
+<h3>pricing</h3>
+<br>
+<p>we have the following payment methods available.</p>
 <strong>crypto:</strong>
 <p>bitcoin</p>
 <p>bitcoin cash</p>
 <p>dodgecoin</p>
+<p>ethereum</p>
 <strong>other:</strong>
 <p>paypal</p>
 
 <br>
-<p>R108 per month. pay as you go</p>
-<a href="#">sign up</a>
+<p>R108 or $6.5 per month. pay as you go</p>
+
+<% if !user_signed_in? %>
+  <p><%= link_to "sign up", new_user_registration_path %></p>
+<% end %>
+
 </div>
 
-<footer>
-<hr>
-<p>made with ruby.</p>
-</footer>
-<img class="sages" src="/assets/sages.png">
+<%= render "layouts/footer" %>

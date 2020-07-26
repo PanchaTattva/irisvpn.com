@@ -1,0 +1,14 @@
+usage terms for OpenVPN service by vpn.tattva.co.za, on port 1194/udp:
+
+  1. no ilegal activity acording to South African law.
+
+  2. for standard home usage only.
+
+  3. no acivity that could get our IPs blocked or blacklisted by other providers -
+     to list a few: no spaming acivity, no hosting mail servers, no mass web/ip scrapers or scaners
+
+  4. streaming, torrents, downloading are allowed but within reasonable bandwidth usage range -
+     we might not be able to cater for you if you use full bandwidth capacity for more than 6 hours -
+     for those users througtling might apply during peak network activity.
+
+-- updated: 22 Jul 2020 --

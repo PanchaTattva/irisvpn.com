@@ -1,20 +1,4 @@
-<img class="garuda-header" src="/assets/garuda-header.png">
-
-<hr>
-<span>
-<% if user_signed_in? %>
-  <ul><%= link_to "Logout", destroy_user_session_path, method: :delete %></ul>
-<% else %>
-  <ul><%= link_to "sign up", new_user_registration_path %></ul>
-<% end %>
-<ul><a href="#">faq</a></ul>
-<ul><a href="#">contact</a></ul>
-<ul> | </ul>
-<ul><a href="#">privacy</a></ul>
-<ul><a href="#">usage terms</a></ul>
-<ul><a href="#">canary</a></ul>
-</span>
-
+<%= render "layouts/header" %>
 <div class="content">
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
@@ -51,10 +35,4 @@
 
 
 </div>
-
-<footer>
-<hr>
-<p>made with ruby.</p>
-</footer>
-<img class="sages" src="/assets/sages.png">
-
+<%= render "layouts/footer" %>

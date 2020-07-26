@@ -1,0 +1,20 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+we have not been contacted or forced by anybody to monitor our vpn users traffic,
+or handover any data.
+
+This signed message will always use GPG key with the fingerprint: 
+61CA 55F0 C045 6900 A9C2  E197 DE3D C3F9 4E67 6607 // 0xDE3DC3F94E676607
+
+
+This message will be updated monthly. 
+
+- -- updated: 22 Jul 2020 --
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYIAB0WIQTXOeOv5IoN3uT5m5PfmE3zTyUygAUCXxhHYQAKCRDfmE3zTyUy
+gEObAQCFpAWZmKIyF3F8GhubMjy9IO2rxACFDK6Tqvp5dCbJogEAzrEDEuy4Ffve
+qvp4qMo81K7di9h8wDCr0Dg0Nohyywk=
+=tHeo
+-----END PGP SIGNATURE-----

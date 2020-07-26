@@ -1,15 +1,11 @@
-<img class="garuda-header" src="assets/garuda-header.png">
+<img class="garuda-header" src="/assets/garuda-header.png">
 
 <hr>
 <span>
-<% unless current_page?(root_path) %>
 <ul><a href="<%= root_path %>">home</a></ul>
-<% end %>
-<% unless current_page?(controller: 'pricing', action: 'index') %>
-<ul><%= link_to 'pricing', controller: 'pricing' %></ul>
-<% end %>
-<ul><a href="#">faq</a></ul>
-<ul><a href="#">contact</a></ul>
+<ul><%= link_to 'pricing', controller: '/pricing' %></ul>
+<ul><%= link_to 'faq', controller: '/faq' %></ul>
+<ul><%= link_to 'contact', controller: '/contact' %></ul>
 <ul> | </ul>
 <% if user_signed_in? %>
   <ul><%= link_to "dashboard", controller: 'users' %></ul>

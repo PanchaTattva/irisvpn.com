@@ -1,23 +1,28 @@
 <%= render "layouts/header" %>
-<div class="content">
-<h3>faq</h3>
 
-<p ><strong>Q: </strong>what protocols supported?</p>
-<p><strong>A: </strong>we are only running openvpn for now.</p>
+<div class="content">
+
+<h3>Frequently Asked Questions</h3>
+
+<p><strong>Q: </strong>Which protocols are supported?</p>
+<p><strong>A: </strong>We are currently only running OpenVPN.</p>
 <br>
-<p><strong>Q: </strong>what speed can i expect?</p>
-<p><strong>A: </strong>running on shared +100mbps line</p>
+<p><strong>Q: </strong>What speeds can I expect?</p>
+<p><strong>A: </strong>There is a minimum 100mbps shared line.</p>
 <br>
-<p><strong>Q: </strong>what is the contention ratio?</p>
-<p><strong>A: </strong>15:1</p>
+<p><strong>Q: </strong>What is your contention ratio?</p>
+<p><strong>A: </strong>The ration is 15:1.</p>
 <br>
-<p><strong>Q: </strong>what operating systems are support?</p>
-<p><strong>A: </strong>anroid, ios, windows, mac and linux</p>
+<p><strong>Q: </strong>Which Operating Systems are supported?</p>
+<p><strong>A: </strong>Linux, Windows, Android and IOS/Mac.</p>
 <br>
-<p><strong>Q: </strong>what software do i need to install?</p>
-<p><strong>A: </strong>for android, ios, windows and linux, you can download the OpenVPN client. and for mac you can download Viscosity.</p>
+<p><strong>Q: </strong>Which software do I need to install?</p>
+<p><strong>A: </strong>The <%= link_to "OpenVPN client", "https://openvpn.net/download-open-vpn/" %> can be used for Linux, Windows, Android & IOS. For Mac the <%= link_to "Viscosity client", "https://www.sparklabs.com/viscosity/" %> can be used.</p>
 <br>
-<p>view privacy policy and usage terms page for other details.</p>
+
+<hr Align=left>
+<p>View the <%= link_to "Privacy Policy", "https://vpn.tattva.network/assets/privacy.txt" %> and <%= link_to "Usage Terms", "https://vpn.tattva.network/assets/privacy.txt" %> pages for other details.</p>
+
 </div>
 
 <%= render "layouts/footer" %>

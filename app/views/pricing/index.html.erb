@@ -1,20 +1,19 @@
 <%= render "layouts/header" %>
 <div class="content">
 
-<h3>pricing</h3>
-<br>
-<p>we have the following payment methods available.</p>
-<strong>crypto:</strong>
-<p>bitcoin</p>
-<p>bitcoin cash</p>
-<p>dodgecoin</p>
-<p>ethereum</p>
-<strong>other:</strong>
-<p>paypal</p>
+<h3>Pricing & Payment Methods</h3>
+<h4>Price:</h4>
+<p>R108 / $6.5 Monthly - Pay as you go.</p>
+<h4>Available Payment Mehods:</h4>
+<strong>Crypto-</strong>
+<p>-Bitcoin</p>
+<p>-Bitcoin cash</p>
+<p>-Dodgecoin</p>
+<p>-Ethereum</p>
+<strong>Other-</strong>
+<p>-Paypal</p>
 
-<br>
-<p>R108 or $6.5 per month. pay as you go</p>
-
+<hr Align=left>
 <% if !user_signed_in? %>
   <p><%= link_to "sign up", new_user_registration_path %></p>
 <% end %>

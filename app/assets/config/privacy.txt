@@ -1,29 +1,30 @@
-privacy policy for vpn.tattva.co.za services.
+Privacy Policy for vpn.tattva.co.za services.
 
-information collected and stored for https://vpn.tattva.co.za/:
-  1. your email and hashed password.
-  2. timestamp, url, user-agent for all visitor to vpn.tattva.co.za [no ip's collected].
+Information collected and stored for https://vpn.tattva.co.za/:
 
-if your accounts stays inactive after a few months, then your email and hashed password will be removed permenently.
+  1. Your email and hashed password.
+  2. Timestamp, URL, User-Agent for all visitors to vpn.tattva.co.za. No IP addresses are collected/stored.
 
-other personal idenitfy information might be stored by our upstream providers for website at https://vpn.tattva.co.za/.
+If an account is inactive for a few months the email address and hashed password will removed permanently.
 
-payment information stored:
+Other personal identification information might be stored by our upstream providers for website at https://vpn.tattva.co.za/.
 
-we do not store any payment details about you on our systems.
+Payment information stored:
 
-  1. view PayPal for information they store about you, and your details that are visible to payee.
-  2. view set crypto public leadger for details of payments to us.
+We do not store any payment details about you on our systems. We do recommend that you -
 
-information collected and stored for OpenVPN connections on port 1194/udp:
+  1. View PayPal for information they store about you, and for more information on the details that are visible to payee.
+  2. View set crypto public leadger for details of payments to us.
 
-we do not keep any systems log [ip and timestamp] for users that use our OpenVPN service.
+Information collected and stored for OpenVPN connections on port 1194/UDP:
 
-our upstream providers might store information about incoming connections to our services.
+We do not keep any systems logs (IP / Timestamp) for users that use our OpenVPN service.
 
-troubleshooting and viewing connection activity:
+Our upstream providers might store information about incoming connections to our services.
 
-to investigate abuse, and for troubleshooting, we might look at live connections [ips] connecting to our services -
-logs might be stored during that timeframe on an tmp filesystem, and securly remove afterwards using bleachbit.
+Troubleshooting and viewing connection activity:
 
--- updated 22 Jul 2020 --
+In order to investigate abuse and troubleshoot issues, we might look at live connections (IPs) connecting to our services.
+Logs may be stored on a tmp filesystem during that timeframe before being securely removed using BleachBit.
+
+-- Updated 26 Jul 2020 --

@@ -79,3 +79,23 @@ footer {
   font-size: small;
 }
 
+.sign-up {
+	display: block;
+	background-color: #f1c2924f;
+	color: #fff;
+	text-decoration: none;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 1.5em;
+	padding: 6px 4px;
+	margin: 4px;
+  border: 1px solid #fff;
+  text-align: center;
+
+}
+
+.sign-up:hover
+{
+	color: #fff;
+	background-color: #f1c2927a;
+  border: 1px solid #fff;
+}

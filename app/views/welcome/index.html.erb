@@ -19,7 +19,7 @@ The issue is that the VPN Server provider can still see where the request has be
 
 <br>
 <% if !user_signed_in? %>
-  <p><button><%= link_to "sign up", new_user_registration_path %></button></p>
+  <p><%= link_to "get started", new_user_registration_path, class: "sign-up"  %></p>
 <% end %>
 
 </div>

@@ -15,7 +15,9 @@
 
 <br>
 <% if !user_signed_in? %>
-  <p><%= link_to "get started", new_user_registration_path, class: "sign-up"  %></p>
+  <br>
+  <hr>
+  <p>Click <%= link_to "here", new_user_registration_path  %> to get started.</p>
 <% end %>
 
 </div>

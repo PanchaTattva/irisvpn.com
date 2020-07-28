@@ -81,7 +81,7 @@ footer {
 
 .sign-up {
 	display: block;
-	background-color: #f1c2924f;
+	background-color: #ecbb8a;
 	color: #fff;
 	text-decoration: none;
 	font-family: Verdana, Geneva, sans-serif;
@@ -98,4 +98,8 @@ footer {
 	color: #fff;
 	background-color: #f1c2927a;
   border: 1px solid #fff;
+}
+
+.get-started {
+  text-align: center;
 }

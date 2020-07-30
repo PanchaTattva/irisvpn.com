@@ -1,25 +1,16 @@
 <%= render "layouts/header" %>
 <div class="content">
 
-<h3>Pricing & Payment Methods</h3>
-<h4>Price:</h4>
-<p>R108 / $6.5 Monthly - Pay as you go.</p>
-<h4>Available Payment Mehods:</h4>
-<strong>Crypto-</strong>
-<p>-Bitcoin</p>
-<p>-Bitcoin cash</p>
-<p>-Dodgecoin</p>
-<p>-Ethereum</p>
-<strong>Other-</strong>
-<p>-Paypal</p>
+<p><strong>Pricing:</strong></p>
+<p>R108.00 / $6.50 Monthly - Pay as you go.</p>
+<p><strong>Available Payment Methods:</strong></p>
+<p> Cryptocurrencies (Bitcoin, Bitcoin cash, Dodgecoin, Ethereum) & PayPal.</p>
 
-<br>
 <% if !user_signed_in? %>
   <br>
   <hr>
-  <p><%= link_to "get started", new_user_registration_path  %></p>
+  <p><%= link_to "Get Started", new_user_registration_path  %></p>
 <% end %>
-
 </div>
 
 <%= render "layouts/footer" %>

@@ -21,7 +21,7 @@ The issue is that the VPN Server provider can still see where the request has be
 <% if !user_signed_in? %>
   <br>
   <hr>
-  <p>Click <%= link_to "here", new_user_registration_path  %> to get started.</p>
+  <p><%= link_to "get started", new_user_registration_path  %></p>
 <% end %>
 
 </div>

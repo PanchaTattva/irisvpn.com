@@ -1,6 +1,9 @@
 # vpn.tattva.network
 
-![](./app/assets/images/garuda-header.png =250x)
+<img src="./app/assets/images/garuda-header.png" width="280" >
+
+----
+
 ## development environment setup
 
 Allow others to access your dev environment by connecting

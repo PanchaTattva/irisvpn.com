@@ -1,0 +1,11 @@
+<%= render "layouts/header" %>
+
+<div class="content">
+<p><strong>id: </strong><%= @admin["id"] %></p>
+<p><strong>email: </strong><%= @admin["email"] %></p>
+<p><strong>created: </strong><%= @admin["created_at"] %></p>
+<p><%= link_to "users", 'admins/show' %></p>
+<br>
+</div>
+
+<%= render "layouts/footer" %>

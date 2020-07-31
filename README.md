@@ -1,24 +1,22 @@
-# README
+# vpn.tattva.network
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+![](./app/assets/images/garuda-header.png =250x)
+## development environment setup
 
-Things you may want to cover:
+Allow others to access your dev environment by connecting
+to your VPN, and then bind your rails server to your asigned VPN IP.
 
-* Ruby version
+`rails server -b 10.8.0.xx`
 
-* System dependencies
 
-* Configuration
+## useful commands
 
-* Database creation
+`rails db:migrate`
 
-* Database initialization
+`rails dbconsole`
 
-* How to run the test suite
+## pending
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- base docker image of ruby, nodejs, npm and rails
+- script to build image
+- script to deploy image

@@ -8,4 +8,19 @@ class AdminsController < ApplicationController
     def show 
         @users = User.all
     end
-  end
+
+    def user_activate
+        @users = User.where(id: params[:id], account_status: "inactive").exists?(conditions = :none)
+
+        if @users
+            User.update(params[:id], account_status: "active")
+            name = User.where(id: params[:id]).pluck(:email)
+            name = name[0].split('@')[0]
+            generate_ovpn_user = `/bin/bash new_client.sh #{name}`   
+        else
+            User.update(params[:id], account_status: "inactive")
+        end
+
+        redirect_to admins_show_path
+    end
+end

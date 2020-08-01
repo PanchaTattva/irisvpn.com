@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     get '/admin' => "admins#index", :as => :admin_root
     get 'admins', to: 'admins#index'
     get 'admins/show', to: 'admins#show'
+    get 'admins/user_activate', to: 'admins#user_activate'
   end
 
   devise_for :users

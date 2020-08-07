@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end
 
   def download_ovpn_file
-    path = "/tmp/"
+    path = "/easy-rsa/vpn_users/"
     user = current_user.email.split('@')[0]
     @filename ="#{path}#{user}"
 

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     get '/user' => "users#index", :as => :user_root
     get 'users', to: 'users#index'
+    get 'users/download_ovpn_file', to: 'users#download_ovpn_file'
   end
 
   get 'welcome/index'

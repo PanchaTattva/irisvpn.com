@@ -1,40 +1,44 @@
 <%= render "layouts/header" %>
 
 <div class="content">
-<p><strong>account status:</strong> <%= @user.account_status %></p>
-<p><strong>email:</strong> <%= @user.email %></p>
-<p><strong>openvpn file:</strong> 
-<% if @user.account_status == "inactive" %>
-  n/a
-<% else %>
-  <%= link_to "download",
-               :controller => "users",
-               :action => "download_ovpn_file" %>
-<% end %>
-</p>
+<p><strong>Email Address:</strong> <%= @user.email %></p>
+<p><strong>Account Status:</strong> <%= @user.account_status %></p>
+<p><strong>OpenVPN File:</strong> 
 
-<br>
 <% if @user.account_status == "inactive" %>
-<p style="color: #c18c5d">please either make an paypal or crypto payment to active your vpn account.</p>
-<p style="color: #c18c5d">1 month vpn access for R108 or $6.5</p>
+  N/A - Awaiting Payment
 <br>
-<strong>crypto:</strong>
-<p>bitcoincash:qpt5mjldn2kzfdqg9r7sxqkv2f6u6ftu3sdznxjrep</p>
-<p>bitcoin:bc1qwmu620r95ayn4vmhvuml4t9sfq6qxk4fgld097</p>
-<p>ethereum:0x0bb49a2fd0D0D1FA13Bc3C4b0805b03EeEbAdb62</p>
-<p>dogecoin:DJqfDbsdUezgzE1hNs2zayzhpMtgBw7PvB</p>
+<br>
 
+<p><strong>Notice:</strong> 
+<p style="color: #c18c5d">Please make payment using any of the below methods. Once processed your OpenVPN file will be become available.</p>
+<p style="color: #c18c5d">R108.00 / $6.50 Per Month - Pay as you go.</p>
+<br>
+
+<strong>Crypto:</strong>
+<p>Bitcoincash:qpt5mjldn2kzfdqg9r7sxqkv2f6u6ftu3sdznxjrep</p>
+<p>Bitcoin:bc1qwmu620r95ayn4vmhvuml4t9sfq6qxk4fgld097</p>
+<p>Ethereum:0x0bb49a2fd0D0D1FA13Bc3C4b0805b03EeEbAdb62</p>
+<p>Dogecoin:DJqfDbsdUezgzE1hNs2zayzhpMtgBw7PvB</p>
+<br>
+
+<strong>PayPal:</strong>
+<br>
 <br>
 <div id="paypal-button-container"></div>
-
 <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
 <input type="hidden" name="cmd" value="_s-xclick">
 <input type="hidden" name="hosted_button_id" value="72KFANKJYBFFG">
 <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
 <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
 </form>
-<% end %>
 
+<% else %>
+  <%= link_to "Download",
+               :controller => "users",
+               :action => "download_ovpn_file" %>
+<% end %>
+</p>
 </div>
 
 <%= render "layouts/footer" %>

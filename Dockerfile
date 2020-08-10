@@ -3,7 +3,8 @@ FROM ruby:alpine
 ENV RAILS_ENV=production
 WORKDIR /usr/share/rails_app
 
-RUN apk add sqlite sqlite-dev build-base tzdata nodejs npm yarn
+RUN apk add sqlite-dev build-base tzdata openssl \
+      nodejs npm yarn sqlite 
 COPY /rails_app ./ 
 RUN bundle install
 RUN rails db:migrate

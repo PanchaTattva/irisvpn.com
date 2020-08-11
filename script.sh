@@ -60,7 +60,9 @@ if [[ -z ${2} ]]; then
   echo 'No Username Specified'
   exit
 fi
-easyrsa revoke ${2}
+echo "====Revoking User===="
+echo yes | easyrsa revoke ${2}
+echo "====Generating CRL and copying to infrastructure===="
 easyrsa gen-crl
 cp /etc/openvpn/easy-rsa/pki/crl.pem /etc/openvpn/server/
 ;;

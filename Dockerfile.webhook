@@ -1,0 +1,8 @@
+FROM ruby:alpine
+
+WORKDIR /usr/src/webhooks
+COPY ./webhooks .
+
+RUN apk add git
+RUN bundle install
+CMD ["bundle", "exec", "ruby", "webhook.rb"]

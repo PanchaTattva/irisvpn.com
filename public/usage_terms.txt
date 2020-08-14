@@ -1,0 +1,17 @@
+Usage Terms for OpenVPN service by vpn.tattva.co.za, on port 1194/UDP:
+
+  1. No illegal activity according to South African law.
+
+  2. For standard home usage only.
+
+  3. No activity that could get our IPs blocked or blacklisted by other providers -
+     to list a few: no spamming acivity, no hosting mail servers, no mass web/IP scrapers or scanners.
+
+  4. Streaming, torrents, downloading are allowed but within reasonable bandwidth usage range -
+     we might not be able to cater for you if you use full bandwidth capacity for more than 6 hours -
+     for those users throttling might apply during peak network activity.
+
+  5. Only one concurrent VPN connection is allowed by default. If you do need more than one VPN connection
+     for your other device then please contact us and we will make arrangements for you.
+
+-- updated: 26 Jul 2020 --

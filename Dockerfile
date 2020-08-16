@@ -1,6 +1,8 @@
 FROM ruby:alpine
 
 ENV RAILS_ENV=production
+ENV RAILS_MASTER_KEY=$serect
+
 WORKDIR /usr/share/rails_app
 
 RUN apk add sqlite-dev build-base tzdata openssl \

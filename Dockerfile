@@ -1,7 +1,7 @@
 FROM ruby:alpine
 
 ENV RAILS_ENV=production
-ENV RAILS_MASTER_KEY=$serect
+ENV RAILS_MASTER_KEY=$secret
 
 WORKDIR /usr/share/rails_app
 

@@ -2,6 +2,8 @@
 require 'sinatra'
 require 'json'
 
+set :bind, '0.0.0.0'
+
 post '/github/push-event' do
   request.body.rewind
   payload_body = request.body.read

@@ -1,0 +1,2 @@
+config/master.key
+db/*.sqlite3

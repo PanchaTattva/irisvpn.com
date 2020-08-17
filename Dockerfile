@@ -1,16 +1,16 @@
 FROM ruby:alpine
 
-ENV RAILS_ENV=production
-ENV RAILS_MASTER_KEY=$secret
+ARG RAILS_MASTER_KEY
 
-WORKDIR /usr/share/rails_app
+ENV RAILS_ENV=production
+
+WORKDIR /usr/src/irisvpn.com
 
 RUN apk add sqlite-dev build-base tzdata openssl \
       nodejs npm yarn sqlite 
 COPY . . 
 RUN bundle install
-RUN echo $RAILS_MASTER_KEY | wc -c
-RUN rails db:migrate ---trace
+RUN rails db:migrate
 RUN rails assets:precompile
 
 CMD ["rails", "server", "-e", "production"]

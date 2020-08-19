@@ -27,10 +27,17 @@ th, td {
      <td><%= users.id %></td>
      <td><%= users.email %></td>
      <td><%= users.account_status %></td>
-     <td><%= link_to "activate", 
-                     :controller => "admins", 
-                     :action => "user_activate", 
-                     :id => users.id %>
+     <% if users.account_status == "active" %>
+      <td><%= link_to "Deactivate", 
+                      :controller => "admins", 
+                      :action => "user_activate", 
+                      :id => users.id %>
+    <% else %>
+     <td><%= link_to "Activate", 
+                      :controller => "admins", 
+                      :action => "user_activate", 
+                      :id => users.id %>
+    <% end %>               
      </td>  
   </tr>
    

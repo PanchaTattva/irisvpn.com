@@ -1,2 +1,0 @@
-class LsController < ApplicationController
-end

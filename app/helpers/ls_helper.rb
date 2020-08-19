@@ -1,2 +1,0 @@
-module LsHelper
-end

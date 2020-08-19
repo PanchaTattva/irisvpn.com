@@ -22,5 +22,8 @@ Rails.application.routes.draw do
   get 'faq', to: 'faq#index'
   get '/privacy.txt', :to => redirect('/assets/privacy.txt')
 
+  get 'paypal', to: 'paypal#index'
+  get 'paypal/capture', to: 'paypal#capture'
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

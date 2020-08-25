@@ -53,7 +53,7 @@ echo "<tls-crypt>" >> /etc/openvpn/easy-rsa/vpn_users/${2}.ovpn
 cat /etc/openvpn/easy-rsa/tls-crypt.key >> /etc/openvpn/easy-rsa/vpn_users/${2}.ovpn
 echo "</tls-crypt>" >> /etc/openvpn/easy-rsa/vpn_users/${2}.ovpn
 ;;
-
+ 
 # User Remove Case
 2 | remove) 
 if [[ -z ${2} ]]; then

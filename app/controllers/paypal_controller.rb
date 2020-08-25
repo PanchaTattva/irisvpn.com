@@ -2,8 +2,6 @@ class PaypalController < ApplicationController
 
   def index
     # Creating Access Token for Sandbox
-    client_id = "AVm16FFwezt03m7PB-a1Jav93krEpF4sGktXjPUiCgUAAqd52QmkPpvCwRjkbYfx1x6DfO7Yt0fOLLrW"
-    client_secret = "EAQ5avARyptECHrH0MUz_zWCmTo51kntU4g97zaoprdn_pA_4PIShU2crl1miFDB6S72zollIVnpnbus"
     # Creating an environment
     environment = PayPal::SandboxEnvironment.new(client_id, client_secret)
     client = PayPal::PayPalHttpClient.new(environment)
@@ -39,8 +37,6 @@ class PaypalController < ApplicationController
 
   def capture
     # Creating Access Token for Sandbox
-    client_id = "AVm16FFwezt03m7PB-a1Jav93krEpF4sGktXjPUiCgUAAqd52QmkPpvCwRjkbYfx1x6DfO7Yt0fOLLrW"
-    client_secret = "EAQ5avARyptECHrH0MUz_zWCmTo51kntU4g97zaoprdn_pA_4PIShU2crl1miFDB6S72zollIVnpnbus"
     # Creating an environment
     environment = PayPal::SandboxEnvironment.new(client_id, client_secret)
     client = PayPal::PayPalHttpClient.new(environment)

@@ -2,26 +2,80 @@
 
 <div class="content">
 <h3>The Product:</h3>
-<p>A Low-Latency VPN solution with multiple hops for added anonymity, infrastructure hosted in South Africa & multiple upstream providers in multiple regions.
-
-Connect to your VPN entrypoint and have your traffic routed over an additional VPN tunnel with a different provider (in another region) before exiting to the public internet.</p>
+<p>An attempt to Decentralized/Commercial-Tor-like VPN services. System consisting of Entrynodes that is managed by us,
+and Exitnodes managed by trusted independent partners. All VPN user traffic passing over our entrynodes is encrypted
+and not viewable by us, traffic is only decrypted on exitnodes. We do not have any access to partner exitnode servers.</p>
 
 <h3>The Problem:</h3>
-<p>With a traditional 'User -> VPN Server -> Internet' VPN setup your request to a website is encrypted by the client (OpenVPN, for instance) and sent to the VPN server. This keeps your ISP (Internet Service Provider) from eavesdropping on your request from the internet. 
 
-The issue is that the VPN Server provider can still see where the request has been generated, and with a bit of luck and timing, they can see what the VPN has requested and make a deduction - tying you to the request.</p>
+<p>VPN providers encrypts your traffic that is passed over your ISP network - not allowing them eavesdrop on 
+your internet activity. But your VPN provider is now your new ISP, that could do exactly the same eavesdroping.
 
+It might still be useful switching from big teleco to a smaller VPN ISP to avoid mass-surveilance programs,
+avoid bandwidth throttling, or just to change your IP identity.</p>
+
+
+<p>Not to disfavor big teleco, they could be a powerful force to protect and service all individuals.
+VPN providers would also have no intetion to eavesdrop and will respect your freedom to privacy 100% but generally does not have their 
+own internet backbone. The caviet being there ISP could monitor or log all incoming and outgoing connections.</p>
+
+<!-- 
+<i>With a traditional 'User -> VPN Server -> Internet' VPN setup your request to a website is
+encrypted by the client (OpenVPN, for instance) and sent to the VPN server. This keeps
+your ISP (Internet Service Provider) from eavesdropping on your request from the internet. 
+
+The issue is that the VPN Server provider can still see where the request has been generated,
+and with a bit of luck and timing, they can see what the VPN has requested and make a deduction -
+tying you to the request.</i>
+-->
 <h3>The Solution:</h3>
-<p>Multiple VPN hops solve this by sending the packet which has been encrypted to a third provider before existing to public internet, keeping the entrypoint VPN Server from seeing what your request is, and keeping the exit VPN Server from knowing where the request was generated.</p>
 
-<h4>Other:</h4>
-<p>We are also developing a tool to modify packet sizes between the entrypoint and exit VPN Servers. Combined with all the aggregated traffic this would make timing and packet size attacks attempting to track you almost null.</p>
+<p>We the VPN provider only acts as the entrypoint and passes all encrypted VPN packets onto the exitnodes. OpenVPN
+encryption keys for each user is generated at the exitnodes and is not accessable by us. This process should also gaurd against
+the exitnode from knowing who has made an specific internet request.</p>
+
+
+<!--
+<i>Multiple VPN hops solve this by sending the packet which has been encrypted to a third provider before 
+existing to public internet, keeping the entrypoint VPN Server from seeing what your request is,
+and keeping the exit VPN Server from knowing where the request was generated.</i>
+-->
+
+<br>
+<br>
+<br>
+<hr>
+<br>
+
+<h3>Phase 1 - Completed</h3>
+<p>A Low-Latency VPN solution with multiple hops for added anonymity, infrastructure hosted in 
+South Africa & multiple upstream providers in multiple regions.
+
+Connect to your VPN entrypoint and have your traffic routed over an additional VPN tunnel
+with a different provider (in another region) before exiting to the public internet.</p>
+
+<p>For this phase we are in control of both entrynodes and exitnodes. But have addressed some
+of the limitations of the standard VPN service.</p>
+
+<h3>Phase 2 - Pending</h3>
+<p>Host all our services on hardware we own.</p>
+<p>Develop a tool to modify packet sizes between the entrynodes and exitnodes.
+Combined with all the aggregated traffic this would make timing and packet size attacks attempting
+to track you almost null.</p>
+<!--
+<p>In addition to multihop VPN solution, also create VPN service for companies or teams who would like their
+own private VPN network (own IP space no one else has access to).
+For purposes like develepment, gaming, etc.</p>
+-->
+<h3>Phase 3 - Pending</h3>
+<p>Developing Decentralized VPN system. Meet with Companies, Organazations or individuals who would like to host and manage an exitnode.</p>
 
 <br>
 <% if !user_signed_in? %>
   <br>
   <hr>
-  <p><%= link_to "Get Started", new_user_registration_path  %></p>
+  <p>If you would like to start using our intial services it would be a great motivation for us. 
+  We would like to do this fulltime but are not funded. <%= link_to "Get Started", new_user_registration_path  %></p>
 <% end %>
 
 </div>

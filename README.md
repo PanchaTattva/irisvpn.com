@@ -18,8 +18,5 @@ to your VPN, and then bind your rails server to your asigned VPN IP.
 
 `rails dbconsole`
 
-## pending
+`rails generate controller [name]`
 
-- base docker image of ruby, nodejs, npm and rails
-- script to build image
-- script to deploy image

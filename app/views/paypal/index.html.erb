@@ -1,3 +1,45 @@
-ehlo
+<script src="https://www.paypal.com/sdk/js?client-id=AVm16FFwezt03m7PB-a1Jav93krEpF4sGktXjPUiCgUAAqd52QmkPpvCwRjkbYfx1x6DfO7Yt0fOLLrW"></script>
+<div id="paypal-button-container"></div>
 
-<%= @order %>
+<script>
+  data: () => ({
+  })
+
+  paypal.Buttons({
+		createOrder: function() {
+      const csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
+			return fetch('/paypal/create_order', {
+				method: 'post',
+				headers: {
+					'content-type': 'application/json',
+          'X-CSRF-Token': csrf
+				}
+			}).then(function(res) {
+          return res.json();
+			}).then(function(data) {
+          //console.log(data);
+          return data['result']['id']; // Use the same key name for order ID on the client and server
+			});
+		},
+
+    onApprove: function(data) {
+      const csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
+      //console.log(data);
+
+      return fetch('/paypal/capture', {
+				method: 'post',
+        headers: {
+          'content-type': 'application/json',
+          'X-CSRF-Token': csrf
+        },
+        body: JSON.stringify({
+          orderID: data.orderID
+        })
+      }).then(function(res) {
+          return res.json();
+      }).then(function(details) {
+          alert('Transaction funds captured, ' + details.result.status + '. From: ' + details.result.payer.name.given_name + ', Email: ' + details.result.payer.email_address);
+      })
+    }
+  }).render('#paypal-button-container');
+</script>

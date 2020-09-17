@@ -4,6 +4,8 @@
 
 ----
 
+dev site: https://vpn.tattva.network
+
 ## development environment setup
 
 Allow others to access your dev environment by connecting
@@ -20,3 +22,10 @@ to your VPN, and then bind your rails server to your asigned VPN IP.
 
 `rails generate controller [name]`
 
+`rails credentials:edit`
+
+access credentials in code with ` Rails.application.credentials.secret_var`
+
+create database table:
+
+`rails generate model payment currency:string wallet_priv:string wallet_pub:string wallet_addr:string`

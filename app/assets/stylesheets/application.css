@@ -42,6 +42,14 @@
     opacity: 10%;
 }
 
+.iris{
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    height: 25%;
+    opacity: 10%;
+}
+
 .content {
   margin: auto;
   width: 55%;

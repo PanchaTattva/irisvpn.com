@@ -23,7 +23,13 @@ Rails.application.routes.draw do
   get '/privacy.txt', :to => redirect('/assets/privacy.txt')
 
   get 'paypal', to: 'paypal#index'
-  get 'paypal/capture', to: 'paypal#capture'
+  post 'paypal/capture', to: 'paypal#capture'
+  post 'paypal/create_order', to: 'paypal#create_order'
+
+  get 'payments/create_crypto_wallets', to: 'payments#create_crypto_wallets'
+  get 'payments/create_crypto_qrcodes', to: 'payments#create_crypto_qrcodes'
+  get 'payments/crypto_price', to: 'payments#crypto_price'
+  get '/user/subscribe', to: 'users#subscribe'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

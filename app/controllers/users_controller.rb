@@ -12,4 +12,8 @@ class UsersController < ApplicationController
 
     send_file(filename, :filename => "#{user}.ovpn")
   end
+
+  def subscribe
+  end
 end
+

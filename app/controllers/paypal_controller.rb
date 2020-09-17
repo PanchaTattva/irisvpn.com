@@ -1,7 +1,12 @@
 class PaypalController < ApplicationController
-
   def index
+  end
+
+  def create_order 
     # Creating Access Token for Sandbox
+    client_id =  Rails.application.credentials.paypal_client
+    client_secret =  Rails.application.credentials.paypal_secret
+
     # Creating an environment
     environment = PayPal::SandboxEnvironment.new(client_id, client_secret)
     client = PayPal::PayPalHttpClient.new(environment)
@@ -9,6 +14,7 @@ class PaypalController < ApplicationController
     # Construct a request object and set desired parameters
     # Here, OrdersCreateRequest::new creates a POST request to /v2/checkout/orders
     request = PayPalCheckoutSdk::Orders::OrdersCreateRequest::new
+    request.prefer("return=representation")
     request.request_body({
                             intent: "CAPTURE",
                             purchase_units: [
@@ -25,9 +31,15 @@ class PaypalController < ApplicationController
         # Call API with your client and get a response for your call
         response = client.execute(request)
 
-        # If call returns body in response, you can get the deserialized version from the result attribute of the response
-        @order = response.result
-        #puts order
+        @order = helpers.openstruct_to_hash(response)
+
+        #@order = response
+        #puts @order
+        puts @order.to_json 
+        render :json => @order
+        @order_id = JSON.parse @order.to_json
+        puts @order_id["result"]["id"]
+        #return @order
     rescue PayPalHttp::HttpError => ioe
         # Something went wrong server-side
         puts ioe.status_code
@@ -36,13 +48,18 @@ class PaypalController < ApplicationController
   end
 
   def capture
+
+    data = JSON.parse request.raw_post
+    puts data 
     # Creating Access Token for Sandbox
+    client_id =  Rails.application.credentials.paypal_client
+    client_secret =  Rails.application.credentials.paypal_secret
     # Creating an environment
     environment = PayPal::SandboxEnvironment.new(client_id, client_secret)
     client = PayPal::PayPalHttpClient.new(environment)
     # Here, OrdersCaptureRequest::new() creates a POST request to /v2/checkout/orders
     # order.id gives the orderId of the order created above
-    request = PayPalCheckoutSdk::Orders::OrdersCaptureRequest::new("1FS30591MM301181S")
+    request = PayPalCheckoutSdk::Orders::OrdersCaptureRequest::new(data["orderID"])
     request.prefer("return=representation")
 
     begin
@@ -51,7 +68,15 @@ class PaypalController < ApplicationController
 
         # If call returns body in response, you can get the deserialized version from the result attribute of the response
         @order = response.result
-        puts @order
+
+        @order = helpers.openstruct_to_hash(response)
+
+        #@order = response
+        #puts @order
+        puts @order.to_json 
+        render :json => @order
+
+        #puts @order
         puts "Status Code: " + response.status_code.to_s
         puts "Status: " + response.result.status
         puts "Order ID: " + response.result.id

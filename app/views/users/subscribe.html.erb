@@ -1,0 +1,141 @@
+<%= render "layouts/header" %>
+
+<div class="content">
+<br>
+<br>
+
+<p><strong>Subscribtion option:</strong></p>
+
+<%= form_with local: true do |form| %>
+
+    <p><%= form.radio_button "plan", "1" %>
+        <%= form.label "R149 / $9.00 Monthly / Pay as you go" %>
+    </p>
+
+    <p><%= form.radio_button "plan", "12" %>
+        <%= form.label "R99 / $6.00 Monthly / 1 Year Plan" %>
+    </p>
+    <p><%= form.radio_button "plan", "24" %>
+        <%= form.label "R68 / $4.00 Monthly / 2 Years Plan" %>
+    </p>
+
+<% end %>
+<br>
+
+
+
+<div id="qr"></div>
+<br>
+<br>
+<div class="payment_options">
+<div class="crypto_options">
+<button onclick="cryptoCurrency('btc')" id="btc"><%= image_tag("/bitcoin.png", style: "padding: 5px") %></button>
+<button onclick="cryptoCurrency('ltc')" id="ltc"> <%= image_tag("/litecoin.png", style: "padding: 5px") %></button>
+<button onclick="cryptoCurrency('eth')" id="eth"> <%= image_tag("/ethereum.png", style: "padding: 5px") %></button>
+<button onclick="cryptoCurrency('doge')" id="doge"> <%= image_tag("/dogecoin.png", width: 64, style: "padding: 5px") %></button>
+<br>
+<br>
+</div>
+
+<br>
+<br>
+<div id="paypal-button-container"></div>
+</div>
+
+
+
+<script>
+
+  async function cryptoCurrency(parameter){
+      const queryString = window.location.search;
+      const urlParams = new URLSearchParams(queryString);
+      const currency = urlParams.get('currency');
+      const csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
+			let response = await fetch(`/payments/create_crypto_qrcodes?currency=${parameter}`, {
+				method: 'get',
+				headers: {
+          'X-CSRF-Token': csrf
+				}
+      });
+        
+        let data = await response.text();
+        var div = document.getElementById('qr');
+        let price = await fetch(`/payments/crypto_price`, {
+          method: 'get',
+          headers: {
+            'X-CSRF-Token': csrf
+          }
+        });
+
+        var plan = document.getElementsByName('plan');
+
+        for(i = 0; i < plan.length; i++) {
+            if(plan[i].checked) {
+                  var term = plan[i].value;
+            }
+        };
+
+        let price_data = await price.text()*term.substring(1, 7);
+        div.innerHTML = `<strong>${parameter}</strong>
+                         <br>
+                         <br>
+                         ${data}
+                         <br>
+                         <br>
+                         <p>send ${price_data}</p>`;
+        
+        document.getElementById(parameter).disabled = true;
+
+    }
+    
+
+</script>
+
+<script>
+  data: () => ({
+  });
+
+
+  paypal.Buttons({
+		createOrder: function() {
+      const csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
+			return fetch('/paypal/create_order', {
+				method: 'post',
+				headers: {
+					'content-type': 'application/json',
+          'X-CSRF-Token': csrf
+				}
+			}).then(function(res) {
+          return res.json();
+			}).then(function(data) {
+          //console.log(data);
+          return data['result']['id'];
+      });
+		},
+
+    onApprove: function(data) {
+      const csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
+      //console.log(data);
+
+      return fetch('/paypal/capture', {
+				method: 'post',
+        headers: {
+          'content-type': 'application/json',
+          'X-CSRF-Token': csrf
+        },
+        body: JSON.stringify({
+          orderID: data.orderID
+        })
+      }).then(function(res) {
+          return res.json();
+      }).then(function(details) {
+          alert('Transaction funds captured, ' + details.result.status + '. From: ' + details.result.payer.name.given_name + ', Email: ' + details.result.payer.email_address);
+      })
+    }
+  }).render('#paypal-button-container');
+</script>
+
+</p>
+</div>
+
+<%= render "layouts/footer" %>

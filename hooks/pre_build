@@ -1,0 +1,3 @@
+#!/bin/bash
+
+echo "${RAILS_MASTER_KEY}" > config/master.key

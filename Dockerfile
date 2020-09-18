@@ -1,7 +1,5 @@
 FROM ruby:alpine
 
-ARG RAILS_MASTER_KEY
-
 ENV RAILS_ENV=production
 
 WORKDIR /usr/src/irisvpn.com

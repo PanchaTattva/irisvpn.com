@@ -1,10 +1,10 @@
-# vpn.tattva.network
+# irisvpn.com 
 
 <img src="./app/assets/images/garuda-header.png" width="280" >
 
 ----
 
-dev site: https://vpn.tattva.network
+Project is currently in early Alpha. https://irisvpn-alpha.tattva.network/
 
 ## development environment setup
 
@@ -13,8 +13,11 @@ to your VPN, and then bind your rails server to your asigned VPN IP.
 
 `rails server -b 10.8.0.xx`
 
+## deployments
 
-## useful commands
+Docker Hub will auto build new images for push to master.
+
+## useful rails commands
 
 `rails db:migrate`
 
@@ -22,9 +25,7 @@ to your VPN, and then bind your rails server to your asigned VPN IP.
 
 `rails generate controller [name]`
 
-`rails credentials:edit`
-
-access credentials in code with ` Rails.application.credentials.secret_var`
+`rails credentials:edit` (access in code with `Rails.application.credentials.secret_token`)
 
 create database table:
 

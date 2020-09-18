@@ -1,3 +1,0 @@
-#!/bin/bash
-
-docker build --build-arg RAILS_MASTER_KEY=$RAILS_MASTER_KEY -f $DOCKERFILE_PATH -t $IMAGE_NAME .

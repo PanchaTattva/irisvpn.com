@@ -11,13 +11,12 @@ and not viewable by us, traffic is only decrypted on exitnodes. We do not have a
 <p>VPN providers encrypts your traffic that is passed over your ISP network - not allowing them eavesdrop on 
 your internet activity. But your VPN provider is now your new ISP, that could do exactly the same eavesdroping.
 
-It might still be useful switching from big teleco to a smaller VPN ISP to avoid mass-surveilance programs,
+It might still be useful switching from big teleco to a smaller VPN ISP to avoid mass-surveilance programs (possibly [1]),
 avoid bandwidth throttling, or just to change your IP identity.</p>
 
 
 <p>Not to disfavor big teleco, they could be a powerful force to protect and service all individuals.
-VPN providers would also have no intetion to eavesdrop and will respect your freedom to privacy 100% but generally does not have their 
-own internet backbone. The caviet being there ISP could monitor or log all incoming and outgoing connections.</p>
+VPN providers would also have no intetion to eavesdrop and will respect your freedom to privacy 100%.</p>
 
 <!-- 
 <i>With a traditional 'User -> VPN Server -> Internet' VPN setup your request to a website is
@@ -59,9 +58,9 @@ of the limitations of the standard VPN service.</p>
 
 <h3>Phase 2 - Pending</h3>
 <p>Host all our services on hardware we own.</p>
-<p>Develop a tool to modify packet sizes between the entrynodes and exitnodes.
-Combined with all the aggregated traffic this would make timing and packet size attacks attempting
-to track you almost null.</p>
+<p>[1] VPN services might still be affected by mass surveilance programs by upstream routers on the network that they are using. 
+Looking into a tool to modify packet sizes between the entrynodes and exitnodes might gaurd against timing attacks to track
+packets.</p>
 <!--
 <p>In addition to multihop VPN solution, also create VPN service for companies or teams who would like their
 own private VPN network (own IP space no one else has access to).

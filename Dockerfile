@@ -1,3 +1,4 @@
+# syntax = docker/dockerfile:1.0-experimental
 FROM ruby:alpine
 
 ENV RAILS_ENV=production
@@ -8,7 +9,8 @@ RUN apk add sqlite-dev build-base tzdata openssl \
       nodejs npm yarn sqlite 
 COPY . . 
 RUN bundle install
-RUN rails db:migrate
-RUN rails assets:precompile
+RUN --mount=type=secret,id=rails,dst=/usr/src/irisvpn.com/config/master.key \
+      rails db:migrate && \
+      rails assets:precompile
 
 CMD ["rails", "server", "-e", "production"]

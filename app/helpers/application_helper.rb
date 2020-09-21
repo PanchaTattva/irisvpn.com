@@ -1,4 +1,5 @@
 module ApplicationHelper
+  # If call returns body in response, you can get the deserialized version from the result attribute of the response
   def openstruct_to_hash(object, hash = {})
     object.each_entry do |key, value|
       hash[key] = value.is_a?(OpenStruct) ? openstruct_to_hash(value) : value.is_a?(Array) ? array_to_hash(value) : value

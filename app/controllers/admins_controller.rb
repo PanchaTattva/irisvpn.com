@@ -9,6 +9,8 @@ class AdminsController < ApplicationController
         @users = User.all
     end
 
+    #add/remove openvpn file for users via bash script
+    #this should maybe be build with ruby rather...
     def user_activate
         users = User.where(id: params[:id], account_status: "inactive").exists?(conditions = :none)
         name = User.where(id: params[:id]).pluck(:email)

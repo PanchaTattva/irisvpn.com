@@ -1,7 +1,8 @@
 class PaypalController < ApplicationController
   def index
   end
-
+  
+  #let paypal know to create invoice
   def create_order 
     # Creating Access Token for Sandbox
     client_id =  Rails.application.credentials.paypal_client
@@ -47,6 +48,7 @@ class PaypalController < ApplicationController
     end
   end
 
+  #verify user has paid/transaction completed 
   def capture
 
     data = JSON.parse request.raw_post

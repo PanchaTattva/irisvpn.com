@@ -1,0 +1,22 @@
+version: "3"
+services:
+  irisvpn:
+    image: panchatattva/irisvpn.com
+    ports: ["127.0.0.1:3000:3000"]
+    volumes:
+      - /root/production.sqlite3:/usr/src/irisvpn.com/db/production.sqlite3 
+      - /root/master.key:/usr/src/irisvpn.com/config/master.key
+      - /root/log:/usr/src/irisvpn.com/log
+  deploy:
+    image: panchatattva/irisvpn.com
+    ports: ["127.0.0.1:3001:3000"]
+    volumes:
+      - /root/production.sqlite3:/usr/src/irisvpn.com/db/production.sqlite3 
+      - /root/master.key:/usr/src/irisvpn.com/config/master.key
+      - /root/log:/usr/src/irisvpn.com/log
+  haproxy:
+    image: haproxy:2.2
+    volumes:
+      - ./infrastucture/haproxy/haproxy.cfg /usr/local/etc/haproxy/haproxy.cfg
+    ports: ["127.0.0.1:4444:4444"]
+    volumes: ["infrastucture/volume:/volume"]

@@ -1,7 +1,7 @@
 FROM ruby:alpine
 
-WORKDIR /usr/src/webhooks
-COPY ./webhooks .
+WORKDIR /usr/src/webhook
+COPY . .
 
 RUN apk add git
 RUN bundle install

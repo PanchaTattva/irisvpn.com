@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# WIP.
+# Actually just notes of server config.
+
 network(){
 
 public_eth=eth0

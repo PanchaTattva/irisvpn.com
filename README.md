@@ -6,6 +6,17 @@
 
 Project is currently in early Alpha. https://irisvpn-alpha.tattva.network/
 
+## directory overview
+
+```
+.
+├── docker-compose.yml
+├── Dockerfile
+├── hooks #used by DockerHub for image builds.
+├── infrastructure #devops tools and config files.
+```
+
+
 ## development environment setup
 
 Allow others to access your dev environment by connecting

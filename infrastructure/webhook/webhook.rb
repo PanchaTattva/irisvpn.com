@@ -18,8 +18,8 @@ post '/docker-hub/build-complete' do
   data = JSON.parse request.body.read
 
   begin
-  callback_url = "https://registry.hub.docker.com/u/panchatattva/build-complete/hook/2141b5bi5i5b02bec211i4eeih0242eg11000a/"
-  #uri = URI(data['callback_url'])
+  #callback_url = "https://registry.hub.docker.com/u/panchatattva/build-complete/hook/2141b5bi5i5b02bec211i4eeih0242eg11000a/"
+  uri = URI(data['callback_url'])
   uri = URI(callback_url)
   http = Net::HTTP.new(uri.host)
   req = Net::HTTP::Post.new(uri.path, 'Content-Type' => 'application/json')

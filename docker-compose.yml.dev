@@ -7,6 +7,7 @@ services:
       - ./infrastructure/volume/production.sqlite3:/usr/src/irisvpn.com/db/production.sqlite3 
       - ./infrastructure/volume/master.key:/usr/src/irisvpn.com/config/master.key
       - ./infrastructure/volume/log:/usr/src/irisvpn.com/log
+      - ./app:/usr/src/irisvpn.com/app
   irisvpn-b:
     image: panchatattva/irisvpn.com
     ports: ["127.0.0.1:3001:3000"]
@@ -14,6 +15,7 @@ services:
       - ./infrastructure/volume/production.sqlite3:/usr/src/irisvpn.com/db/production.sqlite3 
       - ./infrastructure/volume/master.key:/usr/src/irisvpn.com/config/master.key
       - ./infrastructure/volume/log:/usr/src/irisvpn.com/log
+      - ./app:/usr/src/irisvpn.com/app
   haproxy:
     image: haproxy:2.2
     volumes:

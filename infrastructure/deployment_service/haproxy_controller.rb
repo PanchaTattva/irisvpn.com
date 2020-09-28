@@ -83,6 +83,19 @@ module HAProxyManager
       end
     end
 
+    def sess
+      stats = @socket.execute( "show servers conn irisvpn" )
+      headers = stats[0].split(" ")
+      stats[1..-1].inject({}) do |hash, line|
+        data = line.split(" "); server = data[0]; rest = data[0..-1]
+        hash[server] = {} if( hash[server].nil?)
+        hash[server][server] = {}.tap do |server_hash|
+          headers[1..-1].each_with_index{|x, i| server_hash[x]= rest[i]}
+        end
+        hash
+      end
+    end
+
     def servers(backend = nil)
       backend.nil? ? @backends.values.flatten : @backends[backend]
     end

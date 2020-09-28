@@ -17,13 +17,23 @@ post '/docker-hub/build-complete' do
   request.body.rewind  # in case someone already read it
   data = JSON.parse request.body.read
 
+  begin
+  #callback_url = "https://registry.hub.docker.com/u/panchatattva/build-complete/hook/2141b5bi5i5b02bec211i4eeih0242eg11000a/"
   uri = URI(data['callback_url'])
+  uri = URI(callback_url)
   http = Net::HTTP.new(uri.host)
   req = Net::HTTP::Post.new(uri.path, 'Content-Type' => 'application/json')
   req.body = {"state": "success"}.to_json
   res = http.request(req)
 
+  puts "body #{res.body}"
+
   puts "response #{res.body}"
+  puts JSON.parse(res.body)
+    rescue => e
+        puts "failed #{e}"
+    end
+
 end
 
 def verify_signature(payload_body)

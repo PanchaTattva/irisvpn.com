@@ -2,9 +2,21 @@ require './haproxy_controller'
 require 'net/http'
 require 'json'
 
-haproxy = HAProxyManager::Instance.new ("/home/johan/Documents/irisvpn/infrastructure/volume/admin.sock")
+ha_backend = ARGV[0]
+image = ARGV[1]
+container = ARGV[2]
 
-ha_backend = "irisvpn"
+haproxy = HAProxyManager::Instance.new("./infrastructure/volume/admin.sock")
+
+def pull_image(image)
+  docker_pull = `docker pull #{image}`
+
+  if pull_log.include? "Status: Image is up"
+    exit
+  elsif pull_log.include? "Status: Downloaded newer image"
+    connection_drain(container, ha_backend)
+  end
+end
 
 def enable_traffic(container, ha_backend)
   http = Net::HTTP.start('localhost', container_port)
@@ -51,6 +63,3 @@ def connection_drain(container, ha_backend)
     end
   end
 end
-
-
-puts haproxy.sess

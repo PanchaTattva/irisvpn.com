@@ -1,7 +1,10 @@
 #!/bin/ruby
 require 'sinatra'
 require 'json'
-require 'rest-client'
+
+configure :production, :development do
+  enable :logging
+end
 
 set :bind, '0.0.0.0'
 
@@ -17,23 +20,18 @@ post '/docker-hub/build-complete' do
   request.body.rewind  # in case someone already read it
   data = JSON.parse request.body.read
 
+  `echo #{data}`
+  `echo #{request.env}`
+
   begin
-  #callback_url = "https://registry.hub.docker.com/u/panchatattva/build-complete/hook/2141b5bi5i5b02bec211i4eeih0242eg11000a/"
-  uri = URI(data['callback_url'])
-  #uri = URI(callback_url)
-  http = Net::HTTP.new(uri.host)
-  req = Net::HTTP::Post.new(uri.path, 'Content-Type' => 'application/json')
-  req.body = {"state": "success"}.to_json
-  res = http.request(req)
-
-  puts "body #{res.body}"
-
-  puts "response #{res.body}"
-  puts JSON.parse(res.body)
+    uri = URI(data['callback_url'])
+    http = Net::HTTP.new(uri.host)
+    req = Net::HTTP::Post.new(uri.path, 'Content-Type' => 'application/json')
+    req.body = {"state": "success"}.to_json
+    res = http.request(req)
     rescue => e
         puts "failed #{e}"
-    end
-
+  end
 end
 
 def verify_signature(payload_body)
